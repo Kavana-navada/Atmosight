@@ -7,6 +7,7 @@ import { useReverseGeocodeQuery, useWeatherQuery,useForecastQuery } from "@/hook
 import CurrentWeather from "@/components/ui/current-weather";
 import HourlyTemperature from "@/components/ui/hourly-temperature";
 import WeatherDetails from "@/components/ui/weather-details";
+import WeatherForcast from "@/components/ui/weather-forcast";
 
 const WeatherDashboard = () => {
   const {
@@ -102,9 +103,9 @@ const WeatherDashboard = () => {
           <HourlyTemperature data={forcastQuery.data}/>
         </div>
 
-        <div>
+        <div className="grid gap-6 md:grid-cols-2 items-start">
           <WeatherDetails data={weatherQuery.data} />
-
+          <WeatherForcast data={forcastQuery.data}/>
         </div>
       </div>
      
