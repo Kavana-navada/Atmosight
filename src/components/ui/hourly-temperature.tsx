@@ -14,7 +14,7 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
     feels_like: Math.round(item.main.feels_like),
   }));
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader className="flex-1">
         <CardTitle> Today's Temperature</CardTitle>
       </CardHeader>
