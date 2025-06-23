@@ -2,8 +2,8 @@ import WeatherSkeleton from "@/components/loading-skeleton";
 import { Button } from "@/components/ui/button";
 import { useGeolocation } from "@/hooks/use-geolocation";
 import { AlertTriangle, MapPin, RefreshCw } from "lucide-react";
-import React from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { useReverseGeocodeQuery } from "@/hooks/use-weather";
 
 const WeatherDashboard = () => {
   const {
@@ -12,7 +12,10 @@ const WeatherDashboard = () => {
     getLocation,
     isLoading: locationLoading,
   } = useGeolocation();
-  console.log(coordinates);
+
+  const locationQuery=useReverseGeocodeQuery(coordinates);
+  console.log(locationQuery)
+
   const handleRefresh = () => {
     getLocation();
     if (coordinates) {
