@@ -8,7 +8,7 @@ class WeatherAPI{
         const searchParams=new URLSearchParams({
             appid:API_CONFIG.API_KEY,
             ...params})
-        return `${endpoint}? ${searchParams.toString()}`;
+        return `${endpoint}?${searchParams.toString()}`;
 
     }
 
@@ -41,7 +41,7 @@ class WeatherAPI{
     }
     
     async reverseGeocode({lat,lon}:Coordinates):Promise<GeocodingResponse[]>{
-        const url=this.createUrl(` ${API_CONFIG.GEO}/reverse`,{
+        const url=this.createUrl(`${API_CONFIG.GEO}/reverse`,{
             lat:lat.toString(),
             lon:lon.toString(),
             limit:1,

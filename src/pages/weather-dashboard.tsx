@@ -13,8 +13,9 @@ const WeatherDashboard = () => {
     isLoading: locationLoading,
   } = useGeolocation();
 
-  const locationQuery=useReverseGeocodeQuery(coordinates);
-  console.log(locationQuery)
+  console.log(coordinates, locationError, locationLoading);
+  // const locationQuery=useReverseGeocodeQuery(coordinates);
+  // console.log(locationQuery)
 
   const handleRefresh = () => {
     getLocation();
@@ -25,34 +26,35 @@ const WeatherDashboard = () => {
   if (locationLoading) {
     return <WeatherSkeleton />;
   }
+
   if (locationError) {
-    return(
-    <Alert variant="destructive">
-        <AlertTriangle className="h-4 w-4"/>
-      <AlertTitle>Location Error</AlertTitle>
-      <AlertDescription className="flex flex-col gap-4">
-        <p>{locationError}</p>
-        <Button variant={"outline"} onClick={getLocation} className="w-fit">
+    return (
+      <Alert variant="destructive">
+        <AlertTriangle className="h-4 w-4" />
+        <AlertTitle>Location Error</AlertTitle>
+        <AlertDescription className="flex flex-col gap-4">
+          <p>{locationError}</p>
+          <Button variant={"outline"} onClick={getLocation} className="w-fit">
             <MapPin className="mr-2 h-4 w-4"></MapPin>
             Enable Location
-        </Button>
-      </AlertDescription>
-    </Alert>
+          </Button>
+        </AlertDescription>
+      </Alert>
     );
   }
 
-    if (coordinates) {
-    return(
-    <Alert variant="destructive">
-      <AlertTitle>Location Required</AlertTitle>
-      <AlertDescription className="flex flex-col gap-4">
-        <p>Please enable location acces to see your local weather</p>
-        <Button variant={"outline"} onClick={getLocation} className="w-fit">
+  if (!coordinates) {
+    return (
+      <Alert variant="destructive">
+        <AlertTitle>Location Required</AlertTitle>
+        <AlertDescription className="flex flex-col gap-4">
+          <p>Please enable location acces to see your local weather</p>
+          <Button variant={"outline"} onClick={getLocation} className="w-fit">
             <MapPin className="mr-2 h-4 w-4"></MapPin>
             Enable Location
-        </Button>
-      </AlertDescription>
-    </Alert>
+          </Button>
+        </AlertDescription>
+      </Alert>
     );
   }
   return (

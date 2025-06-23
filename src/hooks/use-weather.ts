@@ -7,9 +7,9 @@ export const WEATHER_KEYS = {
     forecast:(coords:Coordinates)=>["forecast",coords]as const,
     location:(coords:Coordinates)=>["location",coords]as const,
 
-};
+} as const;
 export function useWeatherQuery(coordinates:Coordinates|null){
-    useQuery({
+    return useQuery({
         queryKey:WEATHER_KEYS.weather(coordinates??{lat:0,lon:0}),
         queryFn:()=>
             coordinates?weatherAPI.getCurrentWeather(coordinates):null,
@@ -19,17 +19,16 @@ export function useWeatherQuery(coordinates:Coordinates|null){
 }
 
 export function useForecastQuery(coordinates:Coordinates|null){
-    useQuery({
+    return useQuery({
         queryKey:WEATHER_KEYS.forecast(coordinates??{lat:0,lon:0}),
-        queryFn:()=>
-            coordinates?weatherAPI.getForcast(coordinates):null,
+        queryFn:()=>(coordinates?weatherAPI.getForcast(coordinates):null),
         enabled:!!coordinates,
         
     })
 }
 
 export function useReverseGeocodeQuery(coordinates:Coordinates|null){
-    useQuery({
+    return useQuery({
         queryKey:WEATHER_KEYS.location(coordinates??{lat:0,lon:0}),
         queryFn:()=>
             coordinates?weatherAPI.reverseGeocode(coordinates):null,
