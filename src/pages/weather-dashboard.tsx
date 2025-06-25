@@ -66,7 +66,7 @@ const WeatherDashboard = () => {
 
   const locationName=locationQuery.data?.[0];
   console.log("name",locationName)
-  if (weatherQuery.error|| locationQuery.error) {
+  if (weatherQuery.error|| forcastQuery.error) {
     return (
       <Alert variant="destructive">
         <AlertTitle>Error</AlertTitle>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { useTheme } from "@/context/theme-provider";
 import { Sun, Moon } from 'lucide-react';
+import CitySearch from './ui/city-search';
 
 const Header = () => {
 
@@ -15,20 +16,20 @@ const Header = () => {
                 <span className="text-xl font-bold ml-2 text-blue-700" >Atmosight</span>
             </Link>
 
-            <div>
-                {/*search*/}
-                <button
+            <div className='flex gap-4'>
+                <CitySearch/>
+                <div
                     onClick={() => setTheme(isDark ? "light" : "dark")}
                     className={`flex items-center cursor-pointer transition-transform duration-500 ${isDark ? 'rotate-180' : 'rotate-0'}`}
                     aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-                    type="button"
+                    
                 >
                     {isDark ? (
                         <Sun className="h-6 w-6 text-yellow-500 rotate-0 transition-all" />
                     ) : (
                         <Moon className="h-6 w-6 text-blue-500 rotate-0 transition-all" />
                     )}
-                </button>
+                </div>
             </div>
         </div>
       
