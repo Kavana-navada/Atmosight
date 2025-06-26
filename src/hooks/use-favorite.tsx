@@ -13,7 +13,7 @@ interface FavoriteCity{
 
 
 export default function useFavorite(){
-    const [favorites,setFavorites]=useLocalStorage<FavoriteCity[]>("search-history",[])
+    const [favorites,setFavorites]=useLocalStorage<FavoriteCity[]>("favorite-cities",[])
     const queryClient=useQueryClient();
     const favoriteQuery= useQuery({
         queryKey:["favorites"],
@@ -28,7 +28,7 @@ export default function useFavorite(){
         )=>{
             const newFavorite:FavoriteCity={
                 ...city,
-                id:`${city.lat}-${city.lon}-${Date.now()}`,
+                id:`${city.lat}-${city.lon}`,
                 addedAt:Date.now(),
             };
             const exists=favorites.some((fav)=>fav.id===newFavorite.id)
@@ -65,7 +65,7 @@ export default function useFavorite(){
         favorites:favoriteQuery.data,
         addToFavorite,
         removeFavorite,
-        isFavorite:(lat:number,lon:number)=>favorites.some((city)=>city.lat===lat && city.lon===lon)
+        isFavorite:(lat:number,lon:number)=>favorites.some((city)=>city.lat===lat && city.lon===lon),
     }
     
 }
