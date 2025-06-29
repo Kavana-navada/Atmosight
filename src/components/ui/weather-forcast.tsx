@@ -59,13 +59,13 @@ console.log(dailyForecasts)
                         return(
                             <div key={day.date} className='grid grid-cols-3 items-center gap-4 rounded-lg border p-4 '>
                                 
-                                <div>
+                                <div >
                                     <p className='font-medium'>{format(new Date(day.date*1000),"EEE, MMM d")}</p>
                                     <p className='text-sm text-muted-foreground capitalize'>{day.weather.description}</p>
                                 </div>
 
-                                <div className="flex justify-center gap-4" >
-                                    <span className="flex items-center  text-blue-500">
+                                <div className=" flex justify-center gap-2 " >
+                                    <span className="flex items-center  text-blue-500 ">
                                         <ArrowDown className="mr-1 h4-w-4"></ArrowDown>
                                         {formateTemp(day.temp_min)}
                                     </span>
