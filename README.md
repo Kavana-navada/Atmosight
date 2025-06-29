@@ -47,22 +47,24 @@ Create a .env file:
 VITE_OPENWEATHER_API_KEY=your_openweathermap_api_key
 ```
 
----
-
-## 📷 Screenshots  
-
-### HomeScreen   
-<img src="screenshot/dashboard.png" alt="Home Page" width="600"/>
-
-### Image Upload Interface 
-<img src="screenshot/search.png" alt="Light mode" width="600"/>
-
-### Image Upload Interface 
-<img src="screenshot/lightmode.png" alt="Light mode" width="600"/>
-
-
 4. Start the development server
 ```bash
 npm run dev
 ```
+
+---
+
+## 📷 Screenshots  
+
+### Dashboard with current location weather  
+<img src="public/screenshot/dashboard.png" alt="Home Page" width="600"/>
+
+### City search with recent search and favorites 
+<img src="public/screenshot/search.png" alt="Light mode" width="600"/>
+
+### Light Mode View
+<img src="public/screenshot/lightmode.png" alt="Light mode" width="600"/>
+
+
+
 
