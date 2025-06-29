@@ -44,8 +44,22 @@ npm install
 3. Add environment variables
 Create a .env file:
 ```bash
-VITE_WEATHER_API_KEY=your_openweathermap_api_key
+VITE_OPENWEATHER_API_KEY=your_openweathermap_api_key
 ```
+
+---
+
+## 📷 Screenshots  
+
+### HomeScreen   
+<img src="screenshot/dashboard.png" alt="Home Page" width="600"/>
+
+### Image Upload Interface 
+<img src="screenshot/search.png" alt="Light mode" width="600"/>
+
+### Image Upload Interface 
+<img src="screenshot/lightmode.png" alt="Light mode" width="600"/>
+
 
 4. Start the development server
 ```bash
